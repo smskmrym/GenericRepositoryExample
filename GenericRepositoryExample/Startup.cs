@@ -21,10 +21,10 @@ namespace GenericRepositoryExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddDbContext<GenericRepoDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                options.UseSqlServer(Configuration.GetConnectionString("DevConnection"),
                                     x => x.MigrationsAssembly("GenericRepositoryExample.Data")));
 
             services.AddControllersWithViews();
