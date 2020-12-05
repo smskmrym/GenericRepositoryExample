@@ -17,6 +17,8 @@ namespace GenericRepositoryExample.Data
         {
             modelBuilder.ApplyConfiguration(new ArtistConfiguration());
             modelBuilder.ApplyConfiguration(new MusicConfiguration());
+
+            modelBuilder.Seed();
         }
     }
 }
