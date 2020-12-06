@@ -1,8 +1,11 @@
 using AutoMapper;
+using FluentValidation;
 using GenericRepositoryExample.Core.Repositories;
 using GenericRepositoryExample.Core.Services;
 using GenericRepositoryExample.Data;
+using GenericRepositoryExample.Models.Dto;
 using GenericRepositoryExample.Services;
+using GenericRepositoryExample.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +31,8 @@ namespace GenericRepositoryExample
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IMusicService, MusicService>();
             services.AddTransient<IArtistService, ArtistService>();
+            services.AddTransient<IValidator<SaveMusicDto>, SaveMusicValidator>();
+            services.AddTransient<IValidator<SaveArtistDto>, SaveArtistValidator>();
 
             services.AddAutoMapper(typeof(Startup));
 
