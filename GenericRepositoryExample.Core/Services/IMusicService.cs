@@ -7,6 +7,7 @@ namespace GenericRepositoryExample.Core.Services
     public interface IMusicService //Crud Service
     {
         Task<IEnumerable<Music>> GetAllWithArtist();
+        Task<IEnumerable<Music>> GetAllMusics();
         Task<Music> GetMusicById(int id);
         Task<IEnumerable<Music>> GetMusicsByArtistId(int artistId);
         Task<Music> CreateMusic(Music newMusic);

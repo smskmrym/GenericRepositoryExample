@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
-using GenericRepositoryExample.Core.Repositories;
+using GenericRepositoryExample.Core.Services;
 using GenericRepositoryExample.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,12 +10,14 @@ namespace GenericRepositoryExample.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IArtistService _artistService;
+        private readonly IMusicService _musicService;
 
-        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
+        public HomeController(ILogger<HomeController> logger, IArtistService artistService, IMusicService musicService)
         {
             _logger = logger;
-            _unitOfWork = unitOfWork;
+            _artistService = artistService;
+            _musicService = musicService;
         }
 
         public IActionResult Index()

@@ -18,6 +18,11 @@ namespace GenericRepositoryExample.Data.Repositories
             get { return _context as GenericRepoDbContext; }
         }
 
+        public async Task<IEnumerable<Music>> GetAllMusics()
+        {
+            return await GenericRepoDbContext.Musics.ToListAsync();
+        }
+
         public async Task<IEnumerable<Music>> GetAllWithArtistAsync()
         {
             return await GenericRepoDbContext.Musics
