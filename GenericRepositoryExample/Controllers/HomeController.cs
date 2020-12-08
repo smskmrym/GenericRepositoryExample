@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics;
 using GenericRepositoryExample.Core.Services;
 using GenericRepositoryExample.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace GenericRepositoryExample.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

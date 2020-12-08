@@ -41,6 +41,7 @@ namespace GenericRepositoryExample
                                     x => x.MigrationsAssembly("GenericRepositoryExample.Data")));
 
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Music Market API", Version = "v1" }));
         }
@@ -70,6 +71,7 @@ namespace GenericRepositoryExample
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -77,6 +79,7 @@ namespace GenericRepositoryExample
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
